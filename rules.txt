@@ -45,3 +45,15 @@ attributes
 rule 8:
 if a family has n number of food it will produce a cell with the speed attribute
 which will be randomized.
+
+Notes:
+
+We may have to apply hamiltons rule which states Hamilton's rule asserts that a trait is favored 
+by natural selection if the benefit to others, B, multiplied by relatedness, R, exceeds the cost 
+to self, C. Specifically, Hamilton's rule states that the change in average trait value in a population 
+is proportional to BR−C. 
+
+This can be summed up as the inequality Br - c > 0 
+
+but we will have to rewrite this so it can be appiled to the speed attribute
+
