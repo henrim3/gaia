@@ -1,13 +1,29 @@
 from food import Food
+from family import Family
 from random import randint
 
+
 class Cell:
-    def __init__(self, row, column, food, food_rate, speed):
+    def __init__(
+        self,
+        row,
+        column,
+        food,
+        food_rate,
+        speed,
+        family=None,
+        can_reproduce=True,
+    ):
         self.row = row
         self.col = column
         self.food = food
         self.food_rate = food_rate
         self.speed = speed
+        if family:
+            self.family = family
+        else:
+            self.family = Family(set())
+        self.can_reproduce = True
 
     def get_neighbors(self, curr_grid):
         """
@@ -79,7 +95,6 @@ class Cell:
             return start - self.speed
         return start
 
-
     def move_towards(self, position, next_grid):
         """
         param position (tuple): position to move towards (row, column)
@@ -92,9 +107,9 @@ class Cell:
 
         if row_diff < 2 and col_diff < 2:
             return self.row, self.col
-        
-        end_row = self.get_move_dimension(self.row, row, row_diff)
-        end_col = self.get_move_dimension(self.col, col, col_diff)
+
+        end_row = int(self.get_move_dimension(self.row, row, row_diff))
+        end_col = int(self.get_move_dimension(self.col, col, col_diff))
 
         if not next_grid[end_row][end_col]:
             return end_row, end_col
@@ -104,7 +119,7 @@ class Cell:
             nbr_row, nbr_col = nbr_pos
             if not next_grid[nbr_row][nbr_col]:
                 empty_nbrs.append((nbr_row, nbr_col))
-        
+
         if len(empty_nbrs) > 0:
             return empty_nbrs[randint(0, len(empty_nbrs) - 1)]
 
@@ -134,16 +149,6 @@ class Cell:
                 else:
                     self.food += 1 / len(food_nbrs)
 
-            # for food_nbr in food_nbrs:
-            #     if food_nbr.food - (1 / len(food_nbrs)) <= 0:
-            #         self.food += food_nbr.food
-            #         curr_grid[food_nbr.row][food_nbr.col] = None
-            #         next_grid[food_nbr.row][food_nbr.col] = None
-            #     else:
-            #         food_nbr.food -= (1 / len(food_nbrs))
-            #         food_nbr.update(next_grid)
-            #         self.food += (1 / len(food_nbrs))
-
         self.food -= self.food_rate
         if self.food <= 0:
             return 1
@@ -169,4 +174,4 @@ class Cell:
         next_grid[self.row][self.col] = self
 
     def __str__(self):
-        return "x"
+        return self.family.character
