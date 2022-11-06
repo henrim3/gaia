@@ -8,8 +8,6 @@ Stage Three:
 Competiton which leads to natural selection
 also familiy constructions  
 
-Stage four:
-territory 
 
 Rules that handel life and death
 
@@ -34,7 +32,7 @@ A cell reproduces if the cell is joined into a familiy and has n number of resou
 agression rules 
 
 rule 6:
-if a cell has n number food than the cell it will attack
+if a cell has more number food than the other cell  it will attack
 
 rule 7:
 if a cell has speed it will obatin food fast but will require twice as much food also will work 
@@ -66,4 +64,5 @@ like gambling.
 a possible solution is to give the speed cell a choice that will let it create a familiy with another
 of it's kind but will lose one food and may lose it's life . This will ensure a gamble that complies 
 with hamiltons rule.
+
 

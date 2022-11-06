@@ -1,18 +1,13 @@
-import sys
-
-sys.path.append("./classes")
-from board import Board
-from cell import Cell
+from map import Map
 from time import sleep
 
-b = Board(10, 10)
-# b.add_cell_amount(5)
-c1 = b.add_cell(4, 0, 1, 10, 1)
-# c2 = b.add_cell(0, 5, 1, 10, 1)
-b.add_food(5, 3)
-b.add_food(5, 6)
+m = Map(70, 70)
+m.add_cell_amount(20, (20, 20), (1, 2), (1, 2))
+m.add_food_amount(20, (20, 30))
 
 while True:
-    print(b)
-    b.sim_generation()
+    m.display()
+    m.sim_generation()
+    m.add_food_amount(1, (20, 30))
+    print()
     sleep(1)
