@@ -57,3 +57,13 @@ This can be summed up as the inequality Br - c > 0
 
 but we will have to rewrite this so it can be appiled to the speed attribute
 
+The New equation will be written as Bp - c = EV 
+
+
+We could interpt B as benefit and p is seen as possibility. C is cost and EV is equal value. Sort of
+like gambling. 
+
+a possible solution is to give the speed cell a choice that will let it create a familiy with another
+of it's kind but will lose one food and may lose it's life . This will ensure a gamble that complies 
+with hamiltons rule.
+
